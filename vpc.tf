@@ -6,8 +6,9 @@ resource "aws_vpc" "myapp-vpc" {
 }
 
 resource "aws_subnet" "myapp-subnet-1" {
-  vpc_id     = aws_vpc.myapp-vpc.id
-  cidr_block = var.subnet_cidr_block
+  vpc_id            = aws_vpc.myapp-vpc.id
+  availability_zone = var.avail_zone
+  cidr_block        = var.subnet_cidr_block
   tags = {
     Name = "${var.env_prefix}-subnet-1"
   }
